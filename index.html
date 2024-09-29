@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sorting Visualizer</h1>
+      <div id="array-container"></div>
+      <div class="controls">
+        <button id="generate-array" class="other-button">Generate New Array</button>
+        <button id="bubble-sort" class="action-button">Bubble Sort</button>
+        <button id="insertion-sort" class="action-button">Insertion Sort</button>
+        <button id="selection-sort" class="action-button">
+          Selection Sort
+        </button>
+        <button id="stop-button">Stop</button>
+        <i
+          id="mute-button"
+          class="fas fa-volume-up"
+          style="cursor: pointer; font-size: 24px"
+        ></i>
+        <!-- <button id="merge-sort">Merge Sort</button> -->
+      </div>
+      <div class="slider-container">
+        <div class="slider-description">
+          <input
+            type="range"
+            min="100"
+            max="1000"
+            value="500"
+            id="speed-slider"
+            class="slider"
+          />
+          <p>Change the Speed</p>
+        </div>
+        <div class="slider-description">
+          <input
+            type="range"
+            min="5"
+            max="30"
+            value="20"
+            id="no-of-array-elements"
+            class="slider"
+          />
+          <p>Number of array elements</p>
+        </div>
+      </div>
+    </div>
+    <audio id="background-music" loop>
+      <source
+        src="https://www.bensound.com/bensound-music/bensound-littleidea.mp3"
+        type="audio/mpeg"
+      />
+      Your browser does not support the audio element.
+    </audio>
+    <script src="app.js"></script>
+  </body>
+</html>
