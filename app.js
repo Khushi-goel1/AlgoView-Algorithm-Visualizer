@@ -6,7 +6,7 @@ const sortingColor = 'coral';
 const currentBarColor = '#ffcccb';
 
 //Generating an array of random heights
-function generateArray(size = 20) {
+function generateArray(size = 10) {
   array = [];
   arrayContainer.innerHTML = ''; //Clearing the container
   for (let i = 0; i < size; i++) {
@@ -21,8 +21,16 @@ function generateArray(size = 20) {
   }
 }
 
+generateArray();
+
 function getNumElements() {
-  return parseInt(document.getElementById('no-of-array-elements').value);
+  let numElements = parseInt(document.getElementById('no-of-array-elements').value);
+  if (window.innerWidth <= 480) {
+    numElements = Math.min(numElements, 12);}
+  else if(window.innerWidth <= 768){
+    numElements = Math.min(numElements, 20); 
+  }
+  return numElements;
 }
 
 function getSpeed() {
@@ -40,7 +48,7 @@ document.getElementById('generate-array').addEventListener('click', () => {
   const numElements = getNumElements();
   generateArray(numElements);
 });
-generateArray();
+
 
 function startOfFunc() {
   disableOtherButtons();
@@ -262,3 +270,24 @@ muteButton.addEventListener('click', () => {
     isMuted = true;
   }
 });
+
+function setMaxArrayElements() {
+  const inputElement = document.getElementById('no-of-array-elements');
+  
+  if (window.innerWidth <= 480) {
+    inputElement.setAttribute('max', '12');
+  } 
+  else if(window.innerWidth <= 768){
+    inputElement.setAttribute('max', '20'); 
+  }
+  else {
+    inputElement.setAttribute('max', '30'); 
+  }
+}
+
+window.addEventListener('load', setMaxArrayElements);
+window.addEventListener('resize', () => {
+  setMaxArrayElements();
+  generateArray(getNumElements());
+});
+

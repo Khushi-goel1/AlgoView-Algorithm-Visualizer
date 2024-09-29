@@ -3,10 +3,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
   margin: 0;
   background-color: #050c15;
   color: #fff;
+  padding: 20px;
+  padding-top: 50px;
 }
 
 .container {
@@ -21,6 +23,7 @@ body {
   align-items: flex-end;
   height: 300px;
   margin: 20px 0;
+  padding: 20px;
 }
 
 .bar {
@@ -151,4 +154,37 @@ button.selected {
 #mute-button:hover {
   background-color: #c9302c;
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  body {
+    height: auto; 
+    padding: 20px;
+  }
+
+  .container {
+    font-size: large;
+  }
+
+  #array-container {
+    height: 200px;
+  }
+
+  .bar {
+    width: 15px; 
+    margin: 0 2px;
+  }
+
+  .slider-container {
+    flex-direction: column;
+  }
+
+  .slider-description {
+    width: 100%; 
+  }
+
+  button {
+    font-size: 0.9em;
+    padding: 8px 15px;
+  }
 }
